@@ -332,7 +332,6 @@ def media_ponderada(notas, pesos):
     return round(soma_ponderada / soma_pesos, 2)
 
 # Função 30 - Gera relatório final consolidado da turma
-# 🐛 BUG: percentual de aprovação usa total errado
 def relatorio_final(turma):
     """
     Recebe lista de dicts com 'nome' e 'nota'.
@@ -343,7 +342,7 @@ def relatorio_final(turma):
     reprovados  = [a for a in turma if a["nota"] < 6]
     media_turma = sum(a["nota"] for a in turma) / total
 
-    percentual = len(aprovados) / len(reprovados) * 100  # BUG: deveria dividir por total
+    percentual = len(aprovados) / total * 100
 
     print("========== RELATÓRIO FINAL ==========")
     for pos, aluno in enumerate(sorted(turma, key=lambda a: a["nota"], reverse=True), 1):
