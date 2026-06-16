@@ -27,11 +27,10 @@ def divisivel_por(numero, divisor):
     return numero % divisor == 0  
 
 # Função 2 - Calcula a potência sem usar o operador **
-# 🐛 BUG: range errado, faz uma multiplicação a menos
 def potencia(base, expoente):
     """Calcula base elevado a expoente usando multiplicação."""
     resultado = 1
-    for _ in range(expoente - 1):  # BUG: deveria ser range(expoente)
+    for _ in range(expoente):
         resultado *= base
     return resultado
 
